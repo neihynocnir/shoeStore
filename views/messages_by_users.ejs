@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&family=Titillium+Web:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
+  <body>
+    <section class="wrap">
+    <section class="body-section">
+    <h1>Messages</h1>
+
+    <div class="btn-group messages-buttons">
+      <% for(let user of users) { %>
+      <form class="user-name-filter" action='/messages/<%= user.from_user_id %>' method="GET">
+        <button type="submit"class="btn btn-primary name-button"><%= user.name %></button>
+      </form>
+      <% } %>
+    </div>
+    <% for(let message of data) { %>
+      <div class="message">
+        <div class="message-header">
+          <p><b>From:</b> <%= message.from_user_name %></p>
+          <p><b>To:</b> <%= message.to_user_name %></p>
+          <p><b>Product:</b> <%= message.title %></p>
+        </div>
+        <p><b>Message:</b> <%= message.message %></p>
+      </div>
+      <% } %>
+      <div class="right-buttons new-message">
+        <form id="message-form" action="/messages/<%= fromUser %>" method="POST">
+          <input type="text" id="message-input" name="new_message" class="message-text" placeholder="message" />
+          <input type="hidden" name="sneaker_id" value="<%= data[0].item_id %>" />
+          <span>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </span>
+        </form>
+      </div>
+    </section>
+  </section>
+  </body>
+</html>

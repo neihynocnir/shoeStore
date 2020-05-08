@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="/">Cool Sneakers</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/messages">Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Admin</a>
+      </li>
+    </ul>
+  </div>
+  <% if(current_user_email){ %>
+    <span class="nav-link" id="logged-in-as" href="#">Logged in as: <%= current_user_email %></span>
+  <form class="form-inline" action="/logout" method="POST">
+    <button type="submit"class="btn btn-primary" id="logout-button">Logout</button>
+  </form>
+  <% } else{ %>
+  <% } %>
+</nav>

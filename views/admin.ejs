@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Sneakers - Admin Page</title>
+    <!-- External CSS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&family=Titillium+Web:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css"/>
+  </head>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
+  <body>
+  <!-- Add a new Product -->
+  <section class="wrap card-body">
+    <section class="body-section">
+        <h1>Add New Sneakers For Sale</h1>
+        <form class="create-product" action="/sneakers/new" method="POST">
+          <div class="new-product-header">
+            <div class="brand-group">
+              <input type="text" class="form-control" id="brand" name="brand" placeholder="Shoe Brand" required>
+            </div>
+            <div class="title-group">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+            </div>
+          </div>
+
+          <div class="new-product-body">
+            <div class="size-group">
+              <label for="size">Size</label>
+              <select class="size-control" id="size" name="size" required>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </div>
+            <div class="price-group">
+
+              <input type="number" class="form-control" id="price" name="price" placeholder="Price" required>
+            </div>
+          </div>
+          <div class="featured-group">
+            Featured : <input type="checkbox" name="featured">
+          </div>
+          <div class="new-product-footer">
+            <div class="description-group">
+              <input type="text" class="form-control" id="description"  name="description" placeholder="Description" required>
+            </div>
+          </div>
+
+          <input type="hidden" class="form-control" id="colour" name="colour" value="red">
+          <input type="hidden" class="form-control" id="gender" name="gender" value="male">
+          <input type="hidden" class="form-control" id="cover_photo_url" name="cover_photo_url" value="https://stockx.imgix.net/New-Balance-710-Samurai-Magazine-x-mita-Multi.png?fit=fill&bg=FFFFFF&w=140&h=100&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1538080256">
+
+          <section class="button-create">
+            <button type="submit" class="btn btn-primary">Create Product</button>
+          </section>
+
+        </form>
+
+    <!-- Existing Products -->
+    <main class="main">
+
+      <h1>My Sneakers For Sale</h1>
+      <section class="shoes-by-seller">
+
+          <% for(let each of sneakers) { %>
+          <div class="card admin-card" style="width: 23rem;">
+            <h5 class="card-title admin-card-title"><%= each.brand %></h5>
+            <% if (each.active === false) { %>
+                <div class="alert alert-warning">
+                  SOLD!
+                </div>
+            <% } %>
+            <a href="/sneakers/<%= each.id %>">
+              <img src="<%= each.cover_photo_url %>" class="card-img-top" alt="item_photo">
+            </a>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= each.title %></li>
+                <li class="list-group-item">Price: $ <%= each.price %> CAD</li>
+                <li class="list-group-item">Size: <%= each.size %></li>
+              </ul>
+
+              <div class="card-footer">
+                <form method="POST" action="/sneakers/<%= each.id %>">
+                  <button class="btn btn-primary btn-lg" <% if (each.active === false) {%> disabled <% } %>>Sold <i class="fa fa-truck"></i></button>
+                </form>
+                <form method="POST" action="/sneakers/<%= each.id %>/delete">
+                  <button class="btn btn-danger btn-lg">Delete <i class="fa fa-trash"></i></button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </section>
+    </main>
+    </section>
+  </section>
+  </body>
+</html>
+

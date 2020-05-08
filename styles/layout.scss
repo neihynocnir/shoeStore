@@ -1,0 +1,327 @@
+// See: https://sass-lang.com/
+
+header {
+  width: 100%;
+  // display: inline-block;
+
+}
+
+body {
+  background-color: #EEE;
+  color: #222f3e;
+  font-family: 'Titillium Web', sans-serif;
+
+  .wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    color: #2e86de;
+    font-weight: bolder;
+  }
+
+  .body-section {
+    width: 70%;
+  }
+
+  .message {
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  #message-input {
+    width: 60%;
+    margin: 20px;
+    height: 80px;
+  }
+
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    color: #341f97;
+  }
+
+  .new-message {
+
+    margin: 0px;
+    margin-top: 20px;
+    background-color: #c8d6e5;
+    border-radius: 10px;
+  }
+
+  main {
+    margin-top: 20px;
+  }
+
+  .create-product {
+
+    padding: 10px;
+    background-color: #c8d6e5;
+    border-radius: 10px;
+
+    .new-product-header {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      width: 200px;
+      margin: 10px;
+    }
+
+    .title-group {
+      flex-grow: 1;
+      margin: 10px;
+    }
+
+    .new-product-body {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px;
+
+      .size-group {
+        margin-right: 20px;
+        margin-top: 5px;
+      }
+
+      .price-group {
+        flex-grow: 1;
+      }
+    }
+
+    .new-product-footer {
+      margin: 10px;
+      width: 100%;
+    }
+
+    .description-group {
+      margin-right: 20px;
+      margin-top: 20px;
+      height: 100px;
+    }
+
+    #description {
+      height: 100px;
+    }
+
+    .button-create {
+      margin: 10px;
+      margin-top: 20px;
+      display:flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .shoes-by-seller {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .card {
+    // width: 40%;
+    // flex-grow: 1;
+    margin: 20px;
+    height: 470px;
+    // width: 350px;
+    padding: 10px;
+
+    .card-title {
+      color: #341f97;
+      font-weight: bold;
+
+    }
+
+    .card-footer{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      text-align: right;
+      background-color: white;
+
+      .btn{
+        margin-left: 10px;
+      }
+    }
+
+  }
+
+  #username {
+    margin: 20px;
+    width: 300px;
+  }
+
+  .login-btn {
+    width: 100px;
+  }
+
+  .navbar {
+    background-color: #222f3e;
+    font-size: large;
+
+    #logout-button {
+      background-color: #2e86de;
+      width: 100px;
+    }
+
+    #navbarNav {
+      margin-left: 10px;
+      font-size: x-large;
+    }
+
+    .navbar-brand {
+      font-family: 'Amaranth', sans-serif;
+      font-size: xx-large ;
+      color: white;
+    }
+
+  }
+
+
+  #logged-in-as {
+    color: white;
+  }
+
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  #carouselExampleCaptions {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  // .carousel-control-prev, .carousel-control-next {
+  //   background-color: #2e86de;
+  // }
+
+  #carousel-wrap {
+    background-color:#c8d6e5 ;
+  }
+
+  .carousel-caption {
+    background-color: #2e86de;
+    opacity: 0.8;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+
+    h5 {
+      margin-top: 20px;
+    }
+
+    p {
+      font-family: 'Amaranth', sans-serif;
+      font-size: x-large;
+    }
+  }
+
+
+  .shoes-by-seller {
+    justify-content: space-evenly;
+  }
+
+  .messages-buttons {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .user-name-filter {
+    margin-right: 10px;
+
+  }
+
+  .name-button {
+    background-color: #2e86de;
+  }
+
+  .new-message, .right-buttons {
+    padding-left: 0px;
+    margin-left: 0px;
+  }
+
+  .admin-card {
+    height: 610px;
+  }
+
+  .featured-group {
+    margin-left: 10px;
+  }
+
+  .admin-card-title {
+    font-size: x-large;
+    align-self: center;
+  }
+
+  #login-form {
+    font-size: x-large;
+  }
+
+  .beautiful-login-button {
+    border-radius: 20px;
+    width: 100px;
+    height: 60px;
+    background-color: #2e86de;
+    color:white;
+  }
+
+  #username{
+    width: 400px;
+    padding-left: 10px;
+    margin-left: 0px;
+  }
+
+  .filter-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .sneaker-page-card {
+    height: 900px;
+
+
+    .card-title {
+      font-size: x-large;
+      align-self: center;
+    }
+  }
+
+  .sneakers-message-wrap {
+    height: 180px;
+    width: 350px;
+
+    .message-form {
+      display: flex;
+      justify-content: center;
+    }
+
+    #message-input {
+      width: 90%;
+    }
+
+    span {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 15px;
+    }
+
+  }
+
+  #product-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+
+
